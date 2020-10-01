@@ -1,0 +1,12 @@
+{
+  "name": "kube-field",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Owen Trueblood",
+  "license": "private",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.3.1"
+  }
+}
