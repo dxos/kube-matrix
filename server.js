@@ -2,8 +2,14 @@ const fs = require('fs');
 const https = require('https');
 const express = require('express');
 const WebSocket = require('ws');
+const mqtt = require('mqtt');
+//const { createCanvas } = require('canvas');
 
 const PORT = 8000;
+
+const client = mqtt.connect('mqtt://127.0.0.1');
+//const canvas = createCanvas(11, 11);
+//const ctx = canvas.getContext('2d');
 
 // Generated with:
 //  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
@@ -30,6 +36,9 @@ wss.on('connection', (ws, req) => {
 
   ws.on('message', (msg) => {
     const ledUpdate = JSON.parse(msg);
-    updateLeds(ledUpdate);
+    const data = ledUpdate.reduce((data, row) => data.concat(row.reduce((data, pixel) => data.concat(pixel), [])), []);
+
+    client.publish('dxos', data.join(','));
   });
 });
+

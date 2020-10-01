@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.17.1",
+    "mqtt": "^4.2.1",
     "ws": "^7.3.1"
   }
 }
