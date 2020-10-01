@@ -20,6 +20,10 @@
         width: 500px;
         height: 500px;
       }
+
+      .controls {
+        margin-top: 10px;
+      }
     </style>
 
     <title>Kube Field</title>
@@ -27,6 +31,11 @@
   <body>
     <div class="viewport">
       <svg id="leds" viewBox="0 0 500 500"></svg>
+      <div class="controls">
+        <select name="animations" id="animations">
+          <!-- filled in by app.js -->
+        </select>
+      </div>
     </div>
     <script src="js/app.js"></script>
   </body>
