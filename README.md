@@ -1,4 +1,4 @@
-# Kube Field
+# KUBE Field
 
 A web app to control the LED array on the 10X Kube hardware prototype. A Python
 program controls the LEDs and receives frames of LED animation over MQTT. A Node.js
