@@ -1,0 +1,5 @@
+adafruit-circuitpython-neopixel==6.0.0
+RPi.GPIO==0.7.0
+adafruit-blinka==5.5.4
+rpi_ws281x==4.2.4
+paho-mqtt==1.5.1
