@@ -10,8 +10,9 @@ MQTT to the Python program.
 
 ```
 # Install dependencies
-sudo apt install mosquitto paho-mqtt
+sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
+yarn
 
 # Create the certificates for the HTTPS server
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
