@@ -24,3 +24,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out serv
 sudo python3 leds.py
 node server.js
 ```
+
+## Integration
+
+Take a look at **led_demo_simple.py** for a minimal example of writing to the LED
+array.
+
