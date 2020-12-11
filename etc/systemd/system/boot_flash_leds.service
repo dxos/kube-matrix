@@ -1,0 +1,10 @@
+[Unit]
+Description=Flash LED matrix on boot
+
+[Service]
+User=root
+ExecStart=/home/ubuntu/kube-field/boot_anim.py
+
+[Install]
+WantedBy=multi-user.target
+
