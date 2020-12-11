@@ -15,11 +15,9 @@ LED_INVERT     = False          # True to invert the signal (when using NPN tran
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.GRBW
 
-global led_matrix
-led_matrix = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=0.1, auto_write=False, pixel_order=ORDER)
-
 def main():
     global led_matrix
+    led_matrix = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=0.1, auto_write=False, pixel_order=ORDER)
 
     # Time
     t = 0
