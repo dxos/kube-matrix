@@ -1,3 +1,8 @@
+//
+// Test client (communicates via WSS to the Node server).
+// Runs in the browser to leverage the canvas API.
+//
+
 const ns = 'http://www.w3.org/2000/svg';
 const ws = new WebSocket(`wss://${window.location.host}`);
 
@@ -196,7 +201,7 @@ const shadeNetwork = (() => {
 
     const t = iteration / 10.0;
     const radius = 2.3 * (1 + Math.sin(t + nearNodeIndex * Math.PI / 2)) / 2;
-    
+
     const i = (canvas.width * y + x) * 4;
     const r = data[i];
     const g = data[i + 1];

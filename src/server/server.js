@@ -1,15 +1,18 @@
+//
+// Test service (communicates via MQTT to the Python server).
+//
+
 const fs = require('fs');
 const https = require('https');
 const express = require('express');
 const WebSocket = require('ws');
 const mqtt = require('mqtt');
-//const { createCanvas } = require('canvas');
+
+//
+// Web server.
+//
 
 const PORT = 8000;
-
-const client = mqtt.connect('mqtt://127.0.0.1');
-//const canvas = createCanvas(11, 11);
-//const ctx = canvas.getContext('2d');
 
 // Generated with:
 //  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
@@ -20,9 +23,16 @@ const options = {
 
 const app = express();
 app.use(express.static('public'));
+app.use('/js', express.static('src/client'));
 
 const server = https.createServer(options, app);
 server.listen(PORT, () => console.log(`https://localhost:${PORT}`));
+
+//
+// Connect to Python server.
+//
+
+const client = mqtt.connect('mqtt://127.0.0.1');
 
 const wss = new WebSocket.Server({ server });
 
