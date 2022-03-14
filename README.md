@@ -9,6 +9,8 @@ The server then sends the frames over MQTT to the Python program.
 ## Setup
 
 ```bash
+cd ./scripts
+
 # Install dependencies
 sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
@@ -27,8 +29,8 @@ This repo must be installed in **/home/ubuntu/kube-field** for the animation to 
 ## Running
 
 ```bash
-sudo python3 leds.py
-node src/server/server.js
+sudo python3 ./scripts/leds.py
+node ./src/server/server.js
 ```
 
 To bypass Chrome's unsafe Cert warning, type `thisisunsafe` with the main screen focused.
