@@ -22,9 +22,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out serv
 
 ### Flash on Boot
 
-There is a simple animation in **boot_anim.py** that is invoked by a systemd service file in **etc/systemd/system**. 
-The **install_boot_anim.sh** script can be used to install and enable the systemd service. 
-This repo must be installed in **/home/ubuntu/kube-field** for the animation to run.
+There is a simple animation in `boot_anim.py` that is invoked by a systemd service file in `/etc/systemd/system`. 
+The `install_boot_anim.sh` script can be used to install and enable the systemd service. 
+This repo must be installed in `/home/ubuntu/kube-field` for the animation to run.
 
 ## Running
 
@@ -38,5 +38,5 @@ To bypass Chrome's unsafe Cert warning, type `thisisunsafe` with the main screen
 
 ## Integration
 
-Take a look at **led_demo_simple.py** for a minimal example of writing to the LED array.
+Take a look at `led_demo_simple.py` for a minimal example of writing to the LED array.
 
