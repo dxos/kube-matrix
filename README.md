@@ -1,4 +1,4 @@
-# KUBE Field
+# KUBE Matrix
 
 A Web app can be used to select animations which are streamed to the Python server.
 Alternatively the individual Python "run" scripts can be invoked via the HTTP API endpoint.
