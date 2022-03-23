@@ -14,6 +14,8 @@ This package consists of the following components:
 
 ## Setup
 
+The system assumes that `node` and `python3` are installed.
+
 Install yarn dependencies.
 
 ```bash
@@ -28,18 +30,24 @@ sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
 ```
 
-Create the server's TLS (https) credentials.
+Create the Web server's TLS (https) credentials.
 
 ```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
 
-## Development
-
-Start the app server.
+Install the boot service to trigger the animation on startup:
 
 ```bash
-yarn start
+sudo ./bin/install_boot_anim.sh
+```
+
+## Development
+
+Start the app server in development mode.
+
+```bash
+yarn dev
 ```
 
 To test the server.
@@ -54,23 +62,12 @@ To POST to the API endpoint:
 curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }' | jq
 ```
 
-### Flash on Boot
-
-There is a simple animation in `boot_anim.py` that is invoked by a systemd service file in `/etc/systemd/system`. 
-The `install_boot_anim.sh` script can be used to install and enable the systemd service. 
-This repo must be installed in `/home/ubuntu/kube-field` for the animation to run.
-
 ## Running
 
 ```bash
-sudo python3 ./scripts/leds.py
-node ./src/server/server.js
+node ./src/express.js
+node ./src/relay.js
+sudo python3 ./scripts/server.py
 ```
 
-To bypass Chrome's unsafe Cert warning, type `thisisunsafe` with the main screen focused.
-
-
-## Integration
-
-Take a look at `led_demo_simple.py` for a minimal example of writing to the LED array.
-
+To bypass Chrome's unsafe Cert warning, type `thisisunsafe` when loading the app via `https`.
