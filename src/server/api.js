@@ -5,9 +5,11 @@
 const { spawnSync } = require('child_process');
 
 const scriptMap = {
-  'default': './scripts/boot_anim.py',
-  'test': './scripts/led_demo.py',
-  'life': './scripts/game_of_life.py'
+  'default': './scripts/run_test.py',
+  'boot': './scripts/run_boot.py',
+  'demo': './scripts/run_demo.py',
+  'test': './scripts/run_test.py',
+  'life': './scripts/run_life.py'
 }
 
 // TODO(burdon): Logging.

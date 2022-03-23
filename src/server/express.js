@@ -19,8 +19,8 @@ const HTTPS_PORT = 8001;
 // Generated with:
 // openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 const options = {
-  key: fs.readFileSync('./credentials/server.key'),
-  cert: fs.readFileSync('./credentials/server.crt'),
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.crt'),
 };
 
 const app = express();

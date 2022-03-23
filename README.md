@@ -1,10 +1,16 @@
 # KUBE Field
 
-A web app to control the LED array on the 10X KUBE hardware prototype. 
-A Python program controls the LEDs and receives frames of LED animation over MQTT. 
-A Node.js server hosts the web application which generates the animations on the client side
-and streams the frames back over a WebSocket. 
-The server then sends the frames over MQTT to the Python program.
+A Web app can be used to select animations which are streamed to the Python server.
+Alternatively the individual Python "run" scripts can be invoked via the HTTP API endpoint.
+
+This package consists of the following components:
+
+| Component                | Purpose                                                                     |
+|--------------------------|-----------------------------------------------------------------------------|
+| `./src/server/express`   | Express server serves the Generator app and API endpoint.                   |
+| `./src/server/relay`     | Relays Generator bitmap via Websocket to Python server via MQTT.            |
+| `./src/client/generator` | Web app that streams bitmaps to the Express server.                         |
+| `./scripts/server`       | Python server that controls the LED array via bitmaps streamed to its MQTT. |
 
 ## Setup
 
@@ -22,12 +28,9 @@ sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
 ```
 
-Create service credentials.
+Create the server's TLS (https) credentials.
 
 ```bash
-## Create the certificates for the HTTPS server
-mkdir ./credentials
-cd ./credentials
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
 
