@@ -7,6 +7,7 @@ import re
 # bitmap is string that contains 121 (11x11) comma delimitered strings of the form 'RRGGBBWW'
 def bitmap(bitmap = ''):
     values = []
+
     if bitmap:
         values = bitmap.split(',')
 
@@ -16,7 +17,8 @@ def bitmap(bitmap = ''):
             i = y * 11 + x
             if (i <= len(values) - 1):
                 # https://docs.python.org/2/library/re.html#match-objects
-                match = re.search(r'^([\da-f]{2})([\da-f]{2})([\da-f]{2})([\da-f]{2})$', values[i]);
+                match = re.search(r'^([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$', values[i]);
+
                 if match:
                     r = match.group(1)
                     g = match.group(2)

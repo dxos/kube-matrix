@@ -23,11 +23,12 @@ const apiService = async ({ action, bitmap }) => {
     };
   }
 
-  const script = scriptMap[action] ?? scriptMap['default'];
+  const script = scriptMap[action] || scriptMap['default'];
   console.log(`Running script: ${script}`);
 
   try {
-    const { status, stderr } = spawnSync('python3', [script], { encoding: 'utf8' });
+    const { status, stdout, stderr } = spawnSync('python3', [script, '--bitmap', bitmap], { encoding: 'utf8' });
+    console.log(stdout, stderr)
     let error;
     if (status !== 0) {
       error = stderr;

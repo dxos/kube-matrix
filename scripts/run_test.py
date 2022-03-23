@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import math
 import time
 import neopixel
@@ -37,6 +38,10 @@ def main():
 
         time.sleep(0.01)
         t += 0.01
+
+        if t > 1:
+            sys.exit()
+
 
 if __name__ == '__main__':
     main()

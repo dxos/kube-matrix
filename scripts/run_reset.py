@@ -23,5 +23,7 @@ def main():
         for x in range(0, 11):
             led_matrix[y * 11 + x] = (int(0), int(0), int(0), int(0))
 
+    led_matrix.show()
+
 if __name__ == '__main__':
     main()

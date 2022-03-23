@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import math
 import time
 import neopixel
@@ -9,6 +10,7 @@ from random import random
 UPDATE_PERIOD = 0.1
 RESET_THRESHOLD = 5
 TIME_BETWEEN_RESETS = 5 * 60
+TIME_UNTIL_EXIT = 5
 
 LED_COUNT      = 121            # Number of LED pixels.
 LED_PIN        = board.D18      # GPIO pin connected to the pixels (must support PWM!).
@@ -112,6 +114,9 @@ def main():
         if time_since_reset > TIME_BETWEEN_RESETS:
             cells = randomize_cells()
             time_since_reset = 0
+
+        if t > TIME_UNTIL_EXIT:
+            sys.exit()
 
         time.sleep(UPDATE_PERIOD)
         t += UPDATE_PERIOD
