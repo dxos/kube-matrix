@@ -1,42 +1,73 @@
-# KUBE Field
+# KUBE Matrix
 
-A web app to control the LED array on the 10X KUBE hardware prototype. 
-A Python program controls the LEDs and receives frames of LED animation over MQTT. 
-A Node.js server hosts the web application which generates the animations on the client side
-and streams the frames back over a WebSocket. 
-The server then sends the frames over MQTT to the Python program.
+A Web app can be used to select animations which are streamed to the Python server.
+Alternatively the individual Python "run" scripts can be invoked via the HTTP API endpoint.
+
+This package consists of the following components:
+
+| Component                | Purpose                                                                     |
+|--------------------------|-----------------------------------------------------------------------------|
+| `./src/server/express`   | Express server serves the Generator app and API endpoint.                   |
+| `./src/server/relay`     | Relays Generator bitmap via Websocket to Python server via MQTT.            |
+| `./src/client/generator` | Web app that streams bitmaps to the Express server.                         |
+| `./scripts/server`       | Python server that controls the LED array via bitmaps streamed to its MQTT. |
 
 ## Setup
 
+The system assumes that `node` and `python3` are installed.
+
+Install yarn dependencies.
+
+```bash
+yarn 
+```
+
+Install Python dpeendencies.
+
 ```bash
 cd ./scripts
-
-# Install dependencies
 sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
-yarn
+```
 
-# Create the certificates for the HTTPS server
+Create the Web server's TLS (https) credentials.
+
+```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
 
-### Flash on Boot
+Install the boot service to trigger the animation on startup:
 
-There is a simple animation in `boot_anim.py` that is invoked by a systemd service file in `/etc/systemd/system`. 
-The `install_boot_anim.sh` script can be used to install and enable the systemd service. 
-This repo must be installed in `/home/ubuntu/kube-field` for the animation to run.
+```bash
+sudo ./bin/install_boot_anim.sh
+```
+
+## Development
+
+Start the app server in development mode.
+
+```bash
+yarn dev
+```
+
+To test the server.
+
+```bash
+curl -s http://localhost:8000/info | jq
+```
+
+To POST to the API endpoint:
+
+```bash
+curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }' | jq
+```
 
 ## Running
 
 ```bash
-sudo python3 ./scripts/leds.py
-node ./src/server/server.js
+node ./src/express.js
+node ./src/relay.js
+sudo python3 ./scripts/server.py
 ```
 
-To bypass Chrome's unsafe Cert warning, type `thisisunsafe` with the main screen focused.
-
-
-## Integration
-
-Take a look at `led_demo_simple.py` for a minimal example of writing to the LED array.
-
+To bypass Chrome's unsafe Cert warning, type `thisisunsafe` when loading the app via `https`.
