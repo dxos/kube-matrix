@@ -1,18 +1,21 @@
 # KUBE Matrix
 
-<img width="512" alt="Screen Shot 2022-03-23 at 2 02 41 PM" src="https://user-images.githubusercontent.com/3523355/159766169-ce14473c-6910-41e1-a955-c6c9723eeec6.png">
+Matrix is a display and device driver for the KUBE device.
 
-A Web app can be used to select animations which are streamed to the Python server.
-Alternatively the individual Python "run" scripts can be invoked via the HTTP API endpoint.
+<img width="512" alt="Screen Shot 2022-03-23 at 2 02 41 PM" src="https://user-images.githubusercontent.com/3523355/159766169-ce14473c-6910-41e1-a955-c6c9723eeec6.png">
 
 This package consists of the following components:
 
-| Component                | Purpose                                                                     |
-|--------------------------|-----------------------------------------------------------------------------|
-| `./src/server/express`   | Express server serves the Generator app and API endpoint.                   |
-| `./src/server/relay`     | Relays Generator bitmap via Websocket to Python server via MQTT.            |
-| `./src/client/generator` | Web app that streams bitmaps to the Express server.                         |
-| `./scripts/server`       | Python server that controls the LED array via bitmaps streamed to its MQTT. |
+| Component                | Purpose                                                                            |
+|--------------------------|------------------------------------------------------------------------------------|
+| `./src/client/web`       | A Web app that generates an animated bitmap that is streamed to the relay server.  |
+| `./src/server/express`   | Express server serves the Generator app and API endpoint.                          |
+| `./src/server/relay`     | Relays the Generator bitmap via Websocket to Python server via MQTT.               |
+| `./src/client/generator` | Web app that streams bitmaps to the Express server.                                |
+| `./scripts/server`       | Python server that controls the LED array via bitmaps streamed to its MQTT.        |
+
+Additionally there are multiple scripts (see `./scripts`) that can be used to control the Matrix display.
+
 
 ## Setup
 
