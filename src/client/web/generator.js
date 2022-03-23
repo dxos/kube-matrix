@@ -1,6 +1,6 @@
 //
-// Test client (communicates via WSS to the Node server).
-// Runs in the browser to leverage the canvas API.
+// Web client that generates the bitmap (via the Web canvas API).
+// Streams the bitmap via WSS to the Node server proxy.
 //
 
 const ns = 'http://www.w3.org/2000/svg';
@@ -29,7 +29,6 @@ class LedArray {
 
 		document.onmousemove = (event) => {
 			const rect = this.svg.getBoundingClientRect();
-
 			mouseX = this.width * (event.clientX - rect.x) / rect.width;
 			mouseY = this.height * (event.clientY - rect.y) / rect.height;
 		};
@@ -319,4 +318,4 @@ animationSelectEl.onchange = () => {
   const animationName = animationSelectEl.value;
   console.log(`Switching to ${animationName}`);
   currentShader = animations[animationName];
-};
+};;

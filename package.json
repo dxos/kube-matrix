@@ -1,13 +1,21 @@
 {
-  "name": "kube-field",
+  "name": "@dxos/kube-field",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Owen Trueblood",
-  "license": "private",
   "private": true,
+  "scripts": {
+    "start": "nodemon ./src/server/express.js"
+  },
   "dependencies": {
+    "child_process": "^1.0.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "http": "^0.0.1-security",
     "mqtt": "^4.2.1",
     "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0"
   }
 }

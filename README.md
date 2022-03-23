@@ -8,16 +8,47 @@ The server then sends the frames over MQTT to the Python program.
 
 ## Setup
 
+Install yarn dependencies.
+
+```bash
+yarn 
+```
+
+Install Python dpeendencies.
+
 ```bash
 cd ./scripts
-
-# Install dependencies
 sudo apt install python3-pip mosquitto
 python3 -m pip install -r requirements.txt
-yarn
+```
 
-# Create the certificates for the HTTPS server
+Create service credentials.
+
+```bash
+## Create the certificates for the HTTPS server
+mkdir ./credentials
+cd ./credentials
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
+```
+
+## Development
+
+Start the app server.
+
+```bash
+yarn start
+```
+
+To test the server.
+
+```bash
+curl -s http://localhost:8000/info | jq
+```
+
+To POST to the API endpoint:
+
+```bash
+curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }' | jq
 ```
 
 ### Flash on Boot
