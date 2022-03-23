@@ -1,5 +1,7 @@
 # KUBE Matrix
 
+<img width="512" alt="Screen Shot 2022-03-23 at 2 02 41 PM" src="https://user-images.githubusercontent.com/3523355/159766169-ce14473c-6910-41e1-a955-c6c9723eeec6.png">
+
 A Web app can be used to select animations which are streamed to the Python server.
 Alternatively the individual Python "run" scripts can be invoked via the HTTP API endpoint.
 
