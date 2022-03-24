@@ -1,0 +1,11 @@
+# sudo systemctl status kube_matrix_boot.service
+
+[Unit]
+Description=Matrix boot display
+
+[Service]
+User=root
+ExecStart=__ROOT__/scripts/run_life.py
+
+[Install]
+WantedBy=multi-user.target
