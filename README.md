@@ -63,8 +63,17 @@ curl -s http://localhost:8000/info | jq
 To POST to the API endpoint:
 
 ```bash
-curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }'
+curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "ping" }'
 ```
+
+To test remotely:
+
+```bash
+curl -s -k -X POST https://kube.local/matrix/api -H "Content-Type: application/json" -d '{ "action": "life" }'
+```
+
+NOTE: `-k` is required to bypass self-signed certs.
+
 
 ## Running
 

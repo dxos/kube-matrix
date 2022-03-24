@@ -9,7 +9,7 @@ const scriptMap = {
   'boot': './scripts/run_boot.py',
   'reset': './scripts/run_reset.py',
   'bitmap': './scripts/run_bitmap.py',
-  'demo': './scripts/run_demo.py',
+  'ping': './scripts/run_ping.py',
   'test': './scripts/run_test.py',
   'life': './scripts/run_life.py'
 }
@@ -27,6 +27,7 @@ const apiService = async ({ action, bitmap }) => {
   console.log(`Running script: ${script}`);
 
   try {
+    // NOTE: `bitmap` option is only relevant to bitmap script.
     const { status, stdout, stderr } = spawnSync('python3', [script, '--bitmap', bitmap], { encoding: 'utf8' });
     console.log(stdout, stderr)
     let error;
