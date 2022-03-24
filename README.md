@@ -63,7 +63,7 @@ curl -s http://localhost:8000/info | jq
 To POST to the API endpoint:
 
 ```bash
-curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }' | jq
+curl -s -X POST localhost:8000/api -H "Content-Type: application/json" -d '{ "action": "test" }'
 ```
 
 ## Running

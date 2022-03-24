@@ -1,9 +1,0 @@
-[Unit]
-Description=Flash LED matrix on boot
-
-[Service]
-User=root
-ExecStart=__SCRIPTS_PATH__/boot_anim.py
-
-[Install]
-WantedBy=multi-user.target
