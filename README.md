@@ -11,7 +11,6 @@ This package consists of the following components:
 | `./src/client/web`       | A Web app that generates an animated bitmap that is streamed to the relay server.  |
 | `./src/server/express`   | Express server serves the Generator app and API endpoint.                          |
 | `./src/server/relay`     | Relays the Generator bitmap via Websocket to Python server via MQTT.               |
-| `./src/client/generator` | Web app that streams bitmaps to the Express server.                                |
 | `./scripts/server`       | Python server that controls the LED array via bitmaps streamed to its MQTT.        |
 
 Additionally there are multiple scripts (see `./scripts`) that can be used to control the Matrix display.
