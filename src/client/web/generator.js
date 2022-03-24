@@ -272,6 +272,11 @@ const shadeSpiral = (() => {
   };
 })();
 
+// https://stackoverflow.com/questions/22213555/display-image-in-canvas-with-javascript
+const shadeImage = (iteration, x, y) => {
+  return [0, 0, 0, 0];
+}
+
 let currentShader = shadePlasma;
 
 let time = 0;
@@ -303,6 +308,7 @@ const animations = {
   'Mouse Position': shadeMousePosition,
   'Spiral': shadeSpiral,
   'Network': shadeNetwork,
+  'Image': shadeImage
 };
 
 const animationSelectEl = document.getElementById('animations');

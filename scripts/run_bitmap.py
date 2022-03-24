@@ -23,9 +23,6 @@ def main():
     global led_matrix
     led_matrix = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=0.1, auto_write=False, pixel_order=ORDER)
 
-    print('hello world', file = sys.stderr)
-    print('hello world', file = sys.stdout)
-
     opts, args = getopt.getopt(sys.argv[1:], "", ["reset", "bitmap="])
     values = []
 
@@ -34,7 +31,8 @@ def main():
             values = bitmap()
         elif (opt == "--bitmap"):
             values = bitmap(arg)
-            print('running bitmap()', arg)
+        elif (opt == ""):
+            values = bitmap()
 
     for y in range(0, 11):
         for x in range(0, 11):

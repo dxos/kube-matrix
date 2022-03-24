@@ -116,6 +116,10 @@ def main():
             time_since_reset = 0
 
         if t > TIME_UNTIL_EXIT:
+            for y in range(0, 11):
+                for x in range(0, 11):
+                    led_matrix[y * 11 + x] = (int(0), int(0), int(0), int(0))
+            led_matrix.show()
             sys.exit()
 
         time.sleep(UPDATE_PERIOD)

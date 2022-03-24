@@ -39,7 +39,11 @@ def main():
         time.sleep(0.01)
         t += 0.01
 
-        if t > 1:
+        if t > 2:
+            for y in range(0, 11):
+                for x in range(0, 11):
+                    led_matrix[y * 11 + x] = (int(0), int(0), int(0), int(0))
+            led_matrix.show()
             sys.exit()
 
 
