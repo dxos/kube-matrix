@@ -4,22 +4,8 @@ import time
 
 from matrix import *
 
-avatar = """
-           
-  #     #  
-   #   #   
-  #######  
- ## ### ## 
-###########
-# ####### #
-# #     # #
-   ## ##   
-           
-           
-"""
-
 def main():
-    values = bitmap.ascii(avatar, "FC0E8100")
+    values = bitmap.ascii(art.avatar, "FC0E8100")
     display.update(values)
     time.sleep(3)
     display.update()

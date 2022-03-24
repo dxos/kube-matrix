@@ -5,32 +5,16 @@ import getopt
 
 from matrix import *
 
-###########
-avatar = """
-    ###    
-  #######  
- ######### 
- ######### 
-##### #####
-####   ####
-##### #####
- ######### 
- ######### 
-  #######  
-    ###    
-"""
-###########
-
 def main():
-    opts, args = getopt.getopt(sys.argv[1:], "", ["reset", "test", "bitmap="])
+    opts, args = getopt.getopt(sys.argv[1:], '', ['reset', 'test', 'bitmap='])
     values = []
 
     for opt, arg in opts:
-        if (opt == "--reset"):
+        if (opt == '--reset'):
             values = bitmap.hex()
-        elif (opt == "--test"):
-            values = bitmap.ascii(avatar, "0000FF00")
-        elif (opt == "--bitmap"):
+        elif (opt == '--test'):
+            values = bitmap.ascii(art.skull, '0000FF00')
+        elif (opt == '--bitmap'):
             values = bitmap.hex(arg)
 
     display.update(values)

@@ -1,1 +1,1 @@
-__all__ = ['bitmap', 'display']
+__all__ = ['art', 'bitmap', 'display']

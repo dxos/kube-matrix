@@ -14,6 +14,7 @@ ORDER = neopixel.GRBW
 global led_matrix
 led_matrix = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=0.1, auto_write=False, pixel_order=ORDER)
 
+# TODO(burdon): Factor out of other scripts.
 def update(values = []):
     for y in range(0, 11):
         for x in range(0, 11):

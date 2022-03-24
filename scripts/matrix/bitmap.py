@@ -16,6 +16,7 @@ def convert(str):
 
 # convert ascii art to array of hex tuples.
 def ascii(str, fg = '55555555'):
+    str = str.replace('|', '') # Optionally terminate each line with | to prevent removing trailing spaces
     str = str.replace('\n', '')
     color = convert(fg)
 
