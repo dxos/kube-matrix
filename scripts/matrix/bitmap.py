@@ -21,7 +21,7 @@ def ascii(str, colors = ['55555555']):
 
     pixels = []
     for c in str:
-        if c == '':
+        if c == ' ':
             pixel = (0, 0, 0, 0)
         else:
             try:
