@@ -43,7 +43,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out serv
 Install the boot service to trigger the animation on startup:
 
 ```bash
-sudo ./bin/install_boot_anim.sh
+sudo ./bin/install_kube_matrix_boot.sh
+sudo ./bin/install_kube_matrix_server.sh
 ```
 
 ## Development
