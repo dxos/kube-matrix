@@ -13,7 +13,7 @@ def main():
         if (opt == '--reset'):
             values = bitmap.hex()
         elif (opt == '--test'):
-            values = bitmap.ascii(art.skull, '0000FF00')
+            values = bitmap.ascii(art.skull, ['0000FF00'])
         elif (opt == '--bitmap'):
             values = bitmap.hex(arg)
 
