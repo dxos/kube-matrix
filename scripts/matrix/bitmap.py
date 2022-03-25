@@ -15,14 +15,22 @@ def convert(str):
         return [0, 0, 0, 0]
 
 # convert ascii art to array of hex tuples.
-def ascii(str, fg = '55555555'):
+def ascii(str, colors = ['55555555']):
     str = str.replace('|', '') # Optionally terminate each line with | to prevent removing trailing spaces
     str = str.replace('\n', '')
-    color = convert(fg)
 
     pixels = []
     for c in str:
-        pixel = color if c == '#' else (0, 0, 0, 0)
+        if c == '':
+            pixel = (0, 0, 0, 0)
+        else:
+            try:
+                # If number then attempt to index array of colors.
+                i = int(c)
+                pixel = convert(colors[i])
+            catch:
+                pixel = convert(colors[0])
+
         pixels.append(pixel)
 
     return pixels
