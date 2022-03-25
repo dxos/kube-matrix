@@ -21,14 +21,14 @@ def ascii(str, colors = ['55555555']):
 
     pixels = []
     for c in str:
-        if c == '':
+        if c == ' ':
             pixel = (0, 0, 0, 0)
         else:
             try:
                 # If number then attempt to index array of colors.
                 i = int(c)
                 pixel = convert(colors[i])
-            catch:
+            except:
                 pixel = convert(colors[0])
 
         pixels.append(pixel)
